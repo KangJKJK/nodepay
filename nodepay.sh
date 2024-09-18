@@ -8,7 +8,7 @@ YELLOW='\033[0;33m'
 NC='\033[0m' # No Color
 
 echo -e "${GREEN}Nodepay 스크립트를 시작합니다...${NC}"
-read -p "해당 노드를 구동하기 위해서는 Proxy가 필수로 필요합니다. 엔터를 누르세요: "
+read -p "해당 노드를 구동하기 위해서는 Proxy가 필수로 필요합니다. 엔터를 누르세요: " 
 
 # 작업 디렉토리 설정
 work="/root/nodepaypy"

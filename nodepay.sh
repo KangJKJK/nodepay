@@ -84,6 +84,10 @@ echo -e "${YELLOW}좌측하단에 Name란이 생기면서 Device가 나올겁니
 echo -e "${YELLOW}우측하단에 Response로 바꿔줍니다. 공용IP와 userid 등이 여기에 노출이됩니다.${NC}"
 read -p "userid를 따옴표를 제거하고 입력하세요.: " userid
 
+# 환경변수로 설정
+export NP_TOKEN="$nptoken"
+export USER_ID="$userid"
+
 # nodepay 설치
 echo -e "${GREEN}nodepay 스크립트를 실행합니다...${NC}"
 sudo pip install -r requirements.txt

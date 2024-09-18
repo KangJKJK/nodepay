@@ -76,13 +76,13 @@ echo "$webproxy" > "$work/proxy.txt"
 # np토큰 받기
 echo -e "${YELLOW}다음 사이트에 접속하세요: https://app.nodepay.ai/login${NC}"
 echo -e "${YELLOW}F12를 누른 후 상단바에서 콘솔로 이동한 후 다음 명령어를 입력하세요: localStorage.getItem('np_token');${NC}"
-read -p "콘솔창에 출력되는 값을 모두 복사해서 붙여넣으세요. 따옴표는 제거하세요.: "nptoken
+read -p "콘솔창에 출력되는 값을 모두 복사해서 붙여넣으세요. 따옴표는 제거하세요.: " nptoken
 
 # userid 받기
 echo -e "${YELLOW}상단바에서 네트워크로 ms라고 표시되는 창을 클릭하세요.${NC}"
 echo -e "${YELLOW}좌측하단에 Name란이 생기면서 Device가 나올겁니다. 아무거나 클릭하세요.${NC}"
 echo -e "${YELLOW}우측하단에 Response로 바꿔줍니다. 공용IP와 userid 등이 여기에 노출이됩니다.${NC}"
-read -p "userid를 따옴표를 제거하고 입력하세요.: "userid
+read -p "userid를 따옴표를 제거하고 입력하세요.: " userid
 
 # nodepay 설치
 echo -e "${GREEN}nodepay 스크립트를 실행합니다...${NC}"

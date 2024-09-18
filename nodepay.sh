@@ -8,7 +8,7 @@ YELLOW='\033[0;33m'
 NC='\033[0m' # No Color
 
 echo -e "${GREEN}Nodepay 스크립트를 시작합니다...${NC}"
-read -p "해당 노드를 구동하기위해선 Proxy가 필수로 필요합니다. 엔터를 누르세요: "
+read -p "해당 노드를 구동하기 위해서는 Proxy가 필수로 필요합니다. 엔터를 누르세요: "
 
 # 작업 디렉토리 설정
 work="/root/nodepaypy"
@@ -44,25 +44,25 @@ else
         echo "파이썬 설치에 실패했습니다."
         exit 1
     fi
-    
+fi
+
 # Git 설치
 echo -e "${YELLOW}Git을 설치합니다...${NC}"
 sudo apt install -y git
 
 # 존재하는 파일을 삭제하고 다운로드
 echo -e "${YELLOW}Git 저장소 클론 중...${NC}"
-rm -rf ./*
-git clone https://github.com/KangJKJK/nodepaypy
+git clone https://github.com/KangJKJK/nodepaypy "$work"
 
 # 작업 디렉토리 이동
-echo -e "${YELLOW}작업디렉토리를 이동합니다...${NC}"
+echo -e "${YELLOW}작업 디렉토리로 이동합니다...${NC}"
 cd "$work"
 
 # 프록시 입력받기
 echo -e "${YELLOW}https://proxy2.webshare.io/로 이동하여 proxylist를 클릭한 다음 Download를 하세요.${NC}"
 echo -e "${YELLOW}메모장에 나오는 모든 프록시를 복사하여 ChatGPT에게 다음과 같은 형식으로 바꿔달라고 하세요.${NC}"
 echo -e "${YELLOW}입력 형식은 다음과 같습니다: http://username:pass@ip:port, 각 프록시는 줄바꿈으로 구분할 것.${NC}"
-echo -e "${bold}프록시를 입력하세요 (입력 후 Ctrl+D로 종료):${NC}"
+echo -e "${BOLD}프록시를 입력하세요 (입력 후 Ctrl+D로 종료):${NC}"
 
 # 여러 줄 입력을 받을 수 있도록
 webproxy=""
@@ -74,14 +74,14 @@ done
 echo "$webproxy" > "$work/proxy.txt"
 
 # np토큰 받기
-echo -e "${YELLOW}다음사이트에 접속하세요: https://app.nodepay.ai/login${NC}"
+echo -e "${YELLOW}다음 사이트에 접속하세요: https://app.nodepay.ai/login${NC}"
 echo -e "${YELLOW}F12를 누른 후 상단바에서 콘솔로 이동한 후 다음 명령어를 입력하세요: localStorage.getItem('np_token');${NC}"
 read -p "콘솔창에 출력되는 값을 모두 복사해서 붙여넣으세요. 따옴표는 제거하세요.: nptoken"
 
 # userid 받기
-echo -e "${YELLOW}상단바에서 네트워크로 ms라고 표시되는 창을 클릭하세요${NC}"
+echo -e "${YELLOW}상단바에서 네트워크로 ms라고 표시되는 창을 클릭하세요.${NC}"
 echo -e "${YELLOW}좌측하단에 Name란이 생기면서 Device가 나올겁니다. 아무거나 클릭하세요.${NC}"
-echo -e "${YELLOW}우측하단에 Reponse로 바꿔줍니다. 공용IP와 userid 등이 여기에 노출이됩니다.${NC}"
+echo -e "${YELLOW}우측하단에 Response로 바꿔줍니다. 공용IP와 userid 등이 여기에 노출이됩니다.${NC}"
 read -p "userid를 따옴표를 제거하고 입력하세요.: userid"
 
 # nodepay 설치

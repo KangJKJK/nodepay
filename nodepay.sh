@@ -85,8 +85,8 @@ echo -e "${YELLOW}우측하단에 Response로 바꿔줍니다. 공용IP와 useri
 read -p "userid를 따옴표를 제거하고 입력하세요.: " userid
 
 # 환경변수로 설정
-export NP_TOKEN="$nptoken"
-export USER_ID="$userid"
+export nptoken="$nptoken"
+export userid="$userid"
 
 # nodepay 설치
 echo -e "${GREEN}nodepay 스크립트를 실행합니다...${NC}"

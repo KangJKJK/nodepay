@@ -86,7 +86,7 @@ read -p "userid를 따옴표를 제거하고 입력하세요.: userid"
 
 # nodepay 설치
 echo -e "${GREEN}nodepay 스크립트를 실행합니다...${NC}"
-pip install -r requirements.txt
+sudo pip install -r requirements.txt
 
 echo -e "${GREEN}모든 작업이 완료되었습니다. 컨트롤+A+D로 스크린을 종료해주세요.${NC}"
 echo -e "${GREEN}스크립트 작성자: https://t.me/kjkresearch${NC}"

@@ -30,14 +30,30 @@ sudo apt install -y git
 echo -e "${YELLOW}Git 저장소 클론 중...${NC}"
 git clone https://github.com/KangJKJK/nodepay-proxy "$work"
 
-# npm이 설치되어 있는지 확인
-if ! command -v npm &> /dev/null; then
-    print_command "npm이 설치되어 있지 않습니다. npm을 설치합니다..."
-    # npm이 없을 경우 설치합니다.
-    curl -L https://www.npmjs.com/install.sh | sh
+# NVM 설치 여부 확인
+if ! command -v nvm &> /dev/null
+then
+    echo "nvm이 설치되어 있지 않습니다. nvm을 설치합니다."
+
+    # nvm 설치
+    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh | bash
+
+    # 셸 환경 파일 로드 (.bashrc 혹은 .zshrc)
+    if [ -f ~/.bashrc ]; then
+        source ~/.bashrc
+    elif [ -f ~/.zshrc ]; then
+        source ~/.zshrc
+    fi
+
+    echo "nvm 설치 완료."
 else
-    print_command "npm이 이미 설치되어 있습니다."
+    echo "nvm이 이미 설치되어 있습니다."
 fi
+
+# 최신 버전 Node.js 설치 및 사용
+echo "최신 버전의 Node.js를 설치하고 사용합니다."
+nvm install node
+nvm use node
 
 # 작업 디렉토리 이동
 echo -e "${YELLOW}작업 디렉토리로 이동합니다...${NC}"

@@ -60,19 +60,18 @@ echo -e "${YELLOW}작업 디렉토리로 이동합니다...${NC}"
 cd "$work"
 
 # 프록시 입력받기
-echo -e "${YELLOW}https://proxy2.webshare.io/로 이동하여 proxylist를 클릭한 다음 Download를 하세요.${NC}"
-echo -e "${YELLOW}메모장에 나오는 모든 프록시를 복사하여 ChatGPT에게 다음과 같은 형식으로 바꿔달라고 하세요.${NC}"
-echo -e "${YELLOW}입력 형식은 다음과 같습니다: http://username:pass@ip:port, 각 프록시는 줄바꿈으로 구분할 것.${NC}"
-echo -e "${BOLD}프록시를 입력하세요 (입력 후 Ctrl+D로 종료):${NC}"
+echo -e "${YELLOW}보유하신 모든 Proxy를 chatgpt에게 다음과 같은 형식으로 변환해달라고 하세요.${NC}"
+echo -e "${YELLOW}이러한 형태로 각 프록시를 한줄에 하나씩 입력하세요: http://username:password@proxy_host:port${NC}"
+echo -e "${YELLOW}프록시 입력 후 엔터를 두번 누르면 됩니다.${NC}"
+> proxy.txt  # proxy.txt 파일 초기화
 
-# 여러 줄 입력을 받을 수 있도록
-webproxy=""
-while IFS= read -r line; do
-    webproxy+="$line"$'\n'
+while true; do
+    read -r proxy
+    if [ -z "$proxy" ]; then
+        break
+    fi
+    echo "$proxy" >> proxy.txt
 done
-
-# 프록시를 파일에 저장
-echo "$webproxy" > "$work/proxy.txt"
 
 # np토큰 받기
 echo -e "${YELLOW}다음 사이트에 접속하세요: https://app.nodepay.ai/login${NC}"

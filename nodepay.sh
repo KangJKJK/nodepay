@@ -22,30 +22,6 @@ fi
 # 파일 다운로드 및 덮어쓰기
 echo -e "${YELLOW}필요한 파일들을 다운로드합니다...${NC}"
 
-# 파이썬 버전 확인 함수
-check_python_installed() {
-    python3 --version &> /dev/null
-    return $?  # 0이면 설치됨, 1이면 설치되지 않음
-}
-
-# 파이썬이 설치되어 있는지 확인
-if check_python_installed; then
-    echo "파이썬이 이미 설치되어 있습니다."
-else
-    echo "파이썬이 설치되어 있지 않습니다. 설치를 시작합니다..."
-    
-    # 파이썬 설치
-    sudo apt update
-    sudo apt install -y python3 python3-pip
-    
-    if check_python_installed; then
-        echo "파이썬이 성공적으로 설치되었습니다."
-    else
-        echo "파이썬 설치에 실패했습니다."
-        exit 1
-    fi
-fi
-
 # Git 설치
 echo -e "${YELLOW}Git을 설치합니다...${NC}"
 sudo apt install -y git

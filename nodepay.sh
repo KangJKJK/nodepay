@@ -30,6 +30,15 @@ sudo apt install -y git
 echo -e "${YELLOW}Git 저장소 클론 중...${NC}"
 git clone https://github.com/KangJKJK/nodepaypy "$work"
 
+# npm이 설치되어 있는지 확인
+if ! command -v npm &> /dev/null; then
+    print_command "npm이 설치되어 있지 않습니다. npm을 설치합니다..."
+    # npm이 없을 경우 설치합니다.
+    curl -L https://www.npmjs.com/install.sh | sh
+else
+    print_command "npm이 이미 설치되어 있습니다."
+fi
+
 # 작업 디렉토리 이동
 echo -e "${YELLOW}작업 디렉토리로 이동합니다...${NC}"
 cd "$work"

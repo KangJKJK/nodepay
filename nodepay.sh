@@ -11,7 +11,7 @@ echo -e "${GREEN}Nodepay 스크립트를 시작합니다...${NC}"
 read -p "해당 노드를 구동하기 위해서는 Proxy가 필수로 필요합니다. 엔터를 누르세요: " 
 
 # 작업 디렉토리 설정
-work="/root/nodepaypy"
+work="/root/nodepay-proxy"
 
 # 기존 작업 디렉토리가 존재하면 삭제
 if [ -d "$work" ]; then
@@ -28,7 +28,7 @@ sudo apt install -y git
 
 # 존재하는 파일을 삭제하고 다운로드
 echo -e "${YELLOW}Git 저장소 클론 중...${NC}"
-git clone https://github.com/KangJKJK/nodepaypy "$work"
+git clone https://github.com/KangJKJK/nodepay-proxy "$work"
 
 # npm이 설치되어 있는지 확인
 if ! command -v npm &> /dev/null; then

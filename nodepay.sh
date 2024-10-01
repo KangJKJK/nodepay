@@ -54,6 +54,7 @@ fi
 echo "최신 버전의 Node.js를 설치하고 사용합니다."
 nvm install node
 nvm use node
+npm install node-fetch
 
 # 작업 디렉토리 이동
 echo -e "${YELLOW}작업 디렉토리로 이동합니다...${NC}"

@@ -96,7 +96,7 @@ export userid="$userid"
 
 # nodepay 설치
 echo -e "${GREEN}nodepay 스크립트를 실행합니다...${NC}"
-sudo node main.js
+sudo node /root/nodepay-proxy/main.js
 
 echo -e "${GREEN}모든 작업이 완료되었습니다. 컨트롤+A+D로 스크린을 종료해주세요.${NC}"
 echo -e "${GREEN}스크립트 작성자: https://t.me/kjkresearch${NC}"

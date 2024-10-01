@@ -50,6 +50,10 @@ else
     echo "nvm이 이미 설치되어 있습니다."
 fi
 
+# nvm을 로드할 수 있도록 명시적으로 설정
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+
 # 최신 버전 Node.js 설치 및 사용
 echo "최신 버전의 Node.js를 설치하고 사용합니다."
 nvm install node
